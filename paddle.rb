@@ -1,12 +1,22 @@
 class Paddle
-  attr_reader :side, :y
+  attr_reader :side, :y, :ai
+  alias ai? ai
   WIDTH = 16
   HEIGHT = 96
   SPEED = 6
 
-  def initialize(side)
+  def initialize(side, ai = false)
+    @ai = ai
     @side = side
     @y = Pong::HEIGHT/2
+  end
+
+  def ai_move!(ball)
+    if y > ball.y
+      up!
+    else
+      down!
+    end
   end
 
   def x1
