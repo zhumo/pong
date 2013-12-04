@@ -37,8 +37,6 @@ class Pong < Hasu::Window
   def update
     @ball.move!
 
-    if @left_paddle
-
     if @ball.off_left?
       @right_score += 1
       @ball = Ball.new
